@@ -48,10 +48,11 @@ while running:
         if event.type == pygame.MOUSEBUTTONDOWN:
             mouse_x, mouse_y = pygame.mouse.get_pos()
             if target_x < mouse_x < target_x + target_width and target_y < mouse_y < target_y + target_height:
-                for _ in range(10):
-                    particles.append(Particle(mouse_x, mouse_y, (255, 0, 0)))
                 target_x = random.randint(0, SCREEN_WIDTH - target_width)
                 target_y = random.randint(0, SCREEN_HEIGHT - target_height)
+                for _ in range(12):
+                    particles.append(Particle(target_x + target_width//2, target_y + target_height//2, (255, 0, 0)))
+
 
     # Обновление и отрисовка частиц
     for particle in particles[:]:
